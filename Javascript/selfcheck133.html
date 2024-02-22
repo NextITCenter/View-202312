@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const weightBalance = (height, weigth) => {
+            height /= 100;
+            let bmi = weigth / (height * height)
+
+            switch (true) {
+                case bmi > 25:
+                    return "비만";
+                case bmi >= 24 && bmi <= 25:
+                    return "과체중";
+                case bmi >= 18.5 && bmi <= 23:
+                    return "정상";
+                default:
+                    return "저체중";
+            }
+        }
+        let h = prompt("키를 입력하세요(cm)")
+        let w = prompt("몸무게를 입력하세요.(kg)")
+        document.write(`당신은 ${weightBalance(h, w)}입니다.`)
+    </script>
+</body>
+</html>

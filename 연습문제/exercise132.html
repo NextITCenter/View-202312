@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const getGCD = (num1, num2) => {
+            let big = (num1 >= num2) ? num1 : num2;
+            let divisor = 0
+            // 1. 문제에서 요구하는 방식
+            /*
+            for (let i = 1; i <= big; i++) {
+                if (num1 % i == 0 && num2 % i == 0) {
+                    divisor = i
+                }
+            }
+            */
+            // 2. 유클리드 호제법을 사용한 방식
+            while ((num1 % num2) > 0) {
+                divisor = num1 % num2;
+                num1 = num2;
+                num2 = divisor;
+            }
+            return divisor;
+        }
+        
+        console.log(`309와 40의 최대공약수: ${getGCD(309, 40)}`)
+        console.log(`45와 38의 최대공약수: ${getGCD(45, 38)}`)
+        console.log(`12와 36의 최대공약수: ${getGCD(12, 36)}`)
+    </script>
+</body>
+</html>

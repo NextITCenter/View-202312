@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="text" class="red-color fz20">sample text</p>
+    <script>
+        const pEl = document.querySelector("#text");
+        pEl.classList.remove("fz20")
+        // pEl.innerHTML = "change text";
+        // pEl.innerText = "change text";
+        pEl.textContent = "change text";
+    </script>
+</body>
+</html>

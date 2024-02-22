@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디지털 시계</title>
+    <style>
+        #date {
+            font-size: medium;
+            font-weight: lighter;
+        }
+        #time {
+            font-size: larger;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <div id="date"></div>
+    <div id="time"></div>
+    <script>
+        const getDate = function () {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = today.getMonth() + 1;
+            const date = today.getDate();
+            const dayNum = today.getDay();
+            const dayArr = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+            const day = dayArr[dayNum];
+            document.getElementById("date").innerText = `${year}년 ${month}월 ${date}일 ${day}`
+        }
+        const getTime = function () {
+            const today = new Date();
+            document.getElementById("time").innerText = `${today.toLocaleTimeString()}`
+        }
+        // setTimeout() 1번
+        // setInterval() 여러번
+        setInterval(getDate, 1000);
+        setInterval(getTime, 1000);
+    </script>
+</body>
+</html>

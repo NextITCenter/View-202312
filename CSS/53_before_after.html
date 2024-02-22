@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>before after</title>
+    <style>
+        .badge::before {
+            content: "new";
+            color: white;
+            background-color: darkgray;
+            border-radius: 4px;
+        }
+        .alert::after {
+            content: '  3  ';
+            color: white;
+            background-color: red;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="badge">Lorem, ipsum dolor.</div>
+    <div class="alert">1</div>
+    <div>2</div>
+    <div>3</div>
+    <div class="badge">111</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+</body>
+</html>

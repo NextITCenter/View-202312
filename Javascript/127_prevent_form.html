@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="myForm">
+        <input type="text" name="userId" id="userId">
+        <button id="sendBtn" type="submit">전송</button>
+    </form>
+    <button onclick="myConfirm(this)">확인</button>
+    <script>
+        function myConfirm(el) {
+            el.textContent = "확인됨";
+        }
+        const userId = document.querySelector("#userId");
+        const myForm = document.querySelector("#myForm");
+        // form 태그에 submit 이벤트가 발생할 때
+        myForm.addEventListener("submit", function (e) {
+            if (userId.value.length < 4) {
+                alert("아이디는 4글자 이상 입력하세요.");
+                e.preventDefault()
+            }
+        })
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        오늘부터 500일 후의 날짜를 출력하시오.
+        (출력은 document.write 함수를 이용한다. 파일명: exercise144.html)
+        */
+        const today = new Date();
+        today.setTime(today.getTime() + 500 * 24 * 60 * 60 * 1000)
+        document.write(today.toLocaleDateString())
+        
+    </script>
+</body>
+</html>

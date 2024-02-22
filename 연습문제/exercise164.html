@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>연습문제 164</title>
+</head>
+<body>
+<div style="text-align:center;">
+	<input type="button" value="게임시작" onclick="newGame()">
+</div>
+<table align="center">
+<tr align="center">
+	<td bgcolor="yellow"> 사 람 </td>
+	<td bgcolor="#CC6666"> 컴 퓨 터 </td>
+</tr>
+<tr>
+	<td><img src="images/바위_좌.png" name="manImg"></td>
+	<td><img src="images/바위_우.png" name="comImg"></td>
+</tr>
+</table>
+<div id="result" style="text-align:center;"></div>
+<script>
+	function newGame() {
+	    let player = prompt("가위 바위 보를 입력하세요.", "가위");
+        let rsp = ["가위", "바위", "보"];
+        let ranNum = Math.floor(Math.random() * (2 - 0 + 1)) + 0
+        let ai = rsp[ranNum];
+        let r = ""
+        if (player == ai) {
+            r = "비김"
+        } else if (player == "가위" && ai == "보"
+            || player == "바위" && ai == "가위"
+            || player == "보" && ai == "바위") {
+            r = "게이머 승!"
+        } else {
+            r = "인공지능 컴퓨터(AI) 승!"
+        }
+		manImg.src = `images/${player}_좌.png`;
+		comImg.src = `images/${ai}_우.png`;
+		result.innerHTML = `결과: ${r}`;
+        // document.write(`첫번째 사람: ${player}<br>`)
+        // document.write(`두번째 사람: ${ai}<br><br>`)
+        // document.write(`결과: ${result}`)
+	}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 자바스크립트의 랜덤 숫자 공식 (최대값(max), 최소값(min))
+        // Math.floor(Math.random() * (max - min + 1)) + min
+        // Math.random() * (max - min) + min
+
+        // Random random = new Random();
+        // random.nextInt(max - min) + min;
+        // 35부터 70사이의 랜덤한 숫자 출력하기
+        let count = 0;
+        while (true) {
+            count++;
+            const randomNumber = Math.floor(Math.random() * (70 - 35 + 1)) + 35;
+            document.write(`${count}번째 확인 중..<br>`)
+            if (randomNumber == 35) {
+                document.write(randomNumber + "나왔따!")
+                break;
+            }
+        }
+    </script>
+</body>
+</html>

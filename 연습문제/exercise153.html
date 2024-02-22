@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>연습문제 1</title>  
+  <link rel="stylesheet" href="css/exercise153.css">
+</head>
+<body>
+  <div id="container">
+    <h1>참가자 명단</h1>
+    <form action="">
+      <ul id="userInput">  
+        <li>
+          <label for="username">이 름</label>
+          <input type="text" id="username">
+        </li>    
+        <li>
+          <label for="major">전 공</label>
+          <input type="text" id="major">
+        </li>           
+      </ul>
+      <button type="button">등록하기</button>      
+    </form>
+    
+    <table id="attendant">
+      <thead>
+        <tr>
+          <th>이 름</th>
+          <th>전 공</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <script>
+    // bttn.addEventListener("click", function () {
+    //   alert("hello");
+    // })
+    const username = document.querySelector("#username");
+    const major = document.querySelector("#major");
+    const registerBtn = document.querySelector("button");
+    const attendant = document.querySelector("#attendant");
+    const form = document.querySelector("form")
+    registerBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      attendant.innerHTML += `<tr><td>${username.value}</td><td>${major.value}</td></tr>`
+      username.value = "";
+      major.value = "";
+      username.focus();
+    });
+    /*
+    registerBtn.addEventListener("click", function () {
+      const trEl = document.createElement("tr");
+
+      const nameTdEl = document.createElement("td");
+      // nameTdEl.textContent = username.value;
+      const nameTextNode = document.createTextNode(username.value);
+      nameTdEl.appendChild(nameTextNode);
+
+      const majorTdEl = document.createElement("td");
+      const majorTextNode = document.createTextNode(major.value);
+      majorTdEl.appendChild(majorTextNode);
+
+      trEl.appendChild(nameTdEl);
+      trEl.appendChild(majorTdEl);
+
+      attendant.appendChild(trEl);
+      username.value = "";
+      major.value = "";
+    });
+          */
+  </script>
+</body>
+</html>

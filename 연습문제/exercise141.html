@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        사람 이름을 계속 입력 받아 배열에 저장하고
+        그 저장된 이름을 출력하는 프로그램을 작성하시오.
+        단, 입력은 prompt 함수로 하고,
+        입력의 마지막은 공백문자("")나 '취소(null)' 버튼을 눌렀을 때로 한다.
+        (파일명: exercise141.html)
+         */
+        // const nameArr = new Array();// 객체 생성 방식
+        const nameArr = []; // 리터럴 생성 방식
+        while (true) {
+            let name = prompt("이름을 입력하세요.");
+            if (name == "" || name == null) {
+                break;
+            }
+            nameArr.push(name);
+        }
+        document.write(nameArr)
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const determineNumber = function (number) {
+            let result = ""
+            if (number > 0) {
+                result = "양수"
+            } else if (number < 0) { // "-50" < 0
+                result = "음수"
+            } else {
+                result = "0"
+            }
+            return result;
+        }
+        let inputNum = prompt("숫자를 입력하세요.")
+        let result = determineNumber(parseInt(inputNum))
+        alert(`${inputNum}은 ${result}입니다.`)
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        2000년 1월 1일부터 오늘까지의 날짜수를 계산하여
+        출력하는 코드를 작성하시오.
+        (출력은 document.write 함수를 이용한다. 파일명: exercise143.html)
+        */
+        const day1 = new Date("2000-01-01");
+        const day2 = new Date();
+        const difference = day2.getTime() - day1.getTime();
+        const diffDate = Math.floor(difference / (24 * 60 * 60 * 1000));
+        document.write(diffDate)
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1131_String.html</title>
+    <style>
+        span {color:red;}
+    </style>
+</head>
+<body>
+    <script>
+        // length: 문자열의 길이
+        // let pw = prompt("비밀번호를 입력하세요.");
+        // if (pw.length < 4) {
+        //     document.write("비밀번호는최소 4자리이상 입력해 주세요.")
+        // } else {
+        //     document.write("비밀번호 등록 완료")
+        // }
+
+        // // contains: 포함 여부
+        // const email = "test!naver.com"
+        // if (!email.includes("@")) { // email.includes("@") === false 와 같은 표현
+        //     document.write("올바른 이메일 형식이 아닙니다.")
+        // } else {
+        //     document.write("올바른 이메일 형식입니다.")
+        // }
+
+        // // indexOf: 글자의 위치
+        // if (email.indexOf("@") < 0) {
+        //     document.write("올바른 이메일 형식이 아닙니다.")
+        // }
+
+        // const newEmail = email.replace("!", "@")
+        // document.write(newEmail)
+        // let a = new Array()
+        let str = "김잔디 기자 = 대한의사협회 비상대책위원회가 오는 17일 제1차 회의를 열어 의대 증원에 대한 향후 투쟁방안과 로드맵 등을 논의해 결정하기로 했다. 대한의사협회는 왜 투쟁을 할까? 대한의사협회는 대단하다."
+        let str2 = str.replace(/대한의사협회/g, "의협")
+        document.write(str2)
+    </script>
+</body>
+</html>

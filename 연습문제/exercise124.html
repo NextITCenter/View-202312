@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let man1 = prompt("첫번째 사람의 가위 바위 보를 입력하세요.", "가위");
+        let man2 = prompt("두번째 사람의 가위 바위 보를 입력하세요.", "가위");
+        let result = ""
+
+        if (man1 == man2) {
+            result = "비김"
+        } else if (man1 == "가위" && man2 == "보"
+            || man1 == "바위" && man2 == "가위"
+            || man1 == "보" && man2 == "바위") {
+            result = "첫번재 사람 승!"
+        } else {
+            result = "두번재 사람 승!"
+        }
+        document.write(`첫번째 사람: ${man1}<br>`)
+        document.write(`두번째 사람: ${man2}<br><br>`)
+        document.write(`결과: ${result}`)
+    </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>self check 02</title>
+</head>
+<style>
+fieldset {
+    border: none;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Roboto Light", sans-serif;
+}
+form {
+    width: 304px;
+    height: 390px;
+    padding: 28px 38px;
+    border: 1px solid black;
+    margin: 100px auto;
+    text-align: center;
+}
+
+form button {
+    width: 228px;
+    height: 44px;
+    border: 1px solid black;
+    background-color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+fieldset + p {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 16px 0;
+}
+
+form input {
+    width: 228px;
+    height: 44px;
+    background-color: #eaeaea;
+    border: 1px solid #eaeaea;
+    padding: 0 10px;
+    margin-bottom: 20px;
+}
+
+form button[type='button'] {
+    background-color: #373f3c;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+form a {
+    text-decoration: none;
+    color: #2c3432;
+}
+#check {
+    color: red;
+}
+</style>
+<body>
+<form>
+    <fieldset id="google">
+        <button>
+            <img src="google.webp" alt="구글 로고" width="16">
+            Log in with Google
+        </button>
+    </fieldset>
+    <p>or</p>
+    <fieldset>
+        <div>
+            <label for="userName">
+                <input type="text" id="userName" name="userName" placeholder="Username">
+            </label>
+        </div>
+        <div>
+            <label for="password">
+                <input type="password" id="password" name="password" placeholder="Password">
+            </label>
+        </div>
+        <!-- 빨간색 글씨로 알림 내용을 출력 -->
+        <div id="check">
+
+        </div>
+        <div>
+            <button type="submit">login</button>
+        </div>
+    </fieldset>
+    <a href="#">forgot your password?</a>
+</form>
+<script>
+    const loginForm = document.forms[0];
+    const checkEl = document.querySelector("#check");
+    const loginBtn = document.querySelector("button[type='submit']");
+    const userName = document.querySelector("#userName");
+    const password = document.querySelector("#password");
+    loginBtn.addEventListener("click", function (ev) {
+        // 1.
+        ev.preventDefault();
+        // 2.
+        if (userName.value.length == 0) {
+            checkEl.innerHTML = "아이디를 입력해 주세요.";
+            userName.focus();
+            return;
+        }
+        // 3.
+        if (!userName.value.includes("@")) {
+            checkEl.innerHTML = "아이디는 이메일 형식으로 입력해 주세요.";
+            userName.focus();
+            return;
+        }
+        // 4.
+        if (password.value == "") {
+            checkEl.innerHTML = "비밀번호를 입력해 주세요.";
+            password.focus();
+            return;
+        }
+        // 5.
+        if (password.value.length < 5) {
+            checkEl.innerHTML = "비밀번호는 5자리 이상 입력해 주세요.";
+            password.focus();
+            return;
+        }
+        // 6. 폼 전송
+        loginForm.submit();
+    })
+</script>
+</body>
+</html>

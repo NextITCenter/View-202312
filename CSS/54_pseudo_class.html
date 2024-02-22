@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a:link {
+            color: greenyellow;
+        }
+        a:visited {
+            color: chocolate;
+        }
+        div:hover {
+            color: white;
+            background-color: darkgray;
+        }
+        span:active {
+            color: red;
+            background-color: green;
+        }
+        input:focus {
+            color: blue;
+        }
+        input:checked + label {
+            color: red;
+        }
+        input:disabled {
+            background-color: black;
+        }
+        input:read-only {
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+    <a href="http://www.naver.com">네이버</a>
+    <a href="http://www.daum.com">다음</a>
+    <a href="http://www.google.com">구글</a>
+    <a href="http://www.nate.com">네이트</a>
+    <div>마우스를 올려보세요</div>
+    <span>마우스를 클릭해보세요</span>
+    <input type="text" readonly value="abcd">
+    <input type="password">
+    <input type="checkbox" id="flag"><label for="flag">참석여부</label>
+    <input type="radio" id="active"><label for="active">활성화</label>
+    <select>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    </select>
+</body>
+</html>

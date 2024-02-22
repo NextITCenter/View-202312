@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" ondblclick="myEvent()" onload="">인라인 이벤트 등록</button>
+    <button type="button" id="pl">property(속성) 리스너(Listener) 이벤트 등록</button>
+    <button type="button" id="el">이벤트 등록 함수(addEventListener) 이벤트 등록</button>
+    <script>
+        function myEvent() {
+            alert("click")
+        }
+        const pl = document.querySelector("#pl")
+        // pl.onclick = myEvent(); // X
+        // pl.onclick = myFunc
+        
+
+        const el = document.querySelector("#el")
+        el.addEventListener("click", function (evt) {
+            alert("click func")
+            console.log(evt)
+        });
+    </script>
+</body>
+</html>

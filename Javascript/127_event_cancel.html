@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>127_event_cancel.html</title>
+</head>
+<body>
+    <a href="https://www.naver.com">
+        <img src="lamp.jpg" alt="모래 위에 불 꺼진 램프">
+    </a>
+    <a href="https://nextit.or.kr" id="nextit">넥스트IT</a>
+    <script>
+        // 이벤트 전파(Event Propagation)
+        // Event.preventDefault()는 주로 a태그나 form태그에서 주로 사용
+        const img = document.querySelector("img");
+        img.addEventListener("click", function (e) {
+            alert("이미지 클릭함");
+            e.preventDefault(); // 기본 이벤트 취소
+            // e.stopPropagation(); // 이벤트의 전파 막기
+        });
+        const nextit = document.querySelector("#nextit");
+        nextit.addEventListener("click", function (e) {
+            e.preventDefault();
+        })
+
+    </script>
+</body>
+</html>

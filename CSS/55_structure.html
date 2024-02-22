@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        tr:nth-child(2n) {
+            background-color: darkgray;
+            color: white;
+        }
+        td:nth-child(odd), th:nth-child(odd) {
+            background-color: lightgray;
+        }
+        /* li:first-of-type {
+            color: blue;
+        } */
+        li:hover + li {
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <div>쌤</div>
+        <li>정의철</li>
+        <li>김미승</li>
+        <li>강성구</li>
+        <li>유정현</li>
+        <li class="hover">김태완</li>
+    </ul>
+    <table>
+        <caption>영수증</caption>
+        <tr>
+            <th>번호</th>
+            <th>상품명</th>
+            <th>수량</th>
+            <th>가격</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>콜라</td>
+            <td>1개</td>
+            <td>1,500원</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>사이다</td>
+            <td>2개</td>
+            <td>1,000원</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>탄산수</td>
+            <td>3개</td>
+            <td>1,000원</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>라면</td>
+            <td>2개</td>
+            <td>2,000원</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>과자</td>
+            <td>5개</td>
+            <td>1,800원</td>
+        </tr>
+    </table>
+</body>
+</html>

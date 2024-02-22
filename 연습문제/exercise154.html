@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>연습문제 2</title>  
+  <link rel="stylesheet" href="css/exercise154.css">
+</head>
+<body>
+  <!--
+    알림 내용이 표시될 영역(<div id="noti-box"></div>)을 웹 브라우저 창의 오른쪽 위에 배치하고 여기에 새로운 요소를 연결합니다.
+    버튼을 클릭하면 div 요소를 만들고 내용을 추가합니다.
+    좀 더 보기 좋게 하기 위해 새로 만든 div 요소에 미리 만든 .noti 스타일을 추가합니다.
+    미리 만든 영역에 새로 만든 div 요소를 연결합니다.
+    setTimeout() 메소드를 사용해서 새로 만든 div 요소가 3초 후에 자동으로 삭제되도록 지정합니다.
+  -->
+  <div id="noti-box"></div>
+  <button id="btn">클릭!</button>
+  <script>
+    const btn = document.querySelector("#btn");
+    const notiBox = document.querySelector("#noti-box");
+    btn.addEventListener("click", function () {
+      
+      const divEl = document.createElement("div");
+      const textEl = document.createTextNode("알림 내용이 표시됩니다.")
+      divEl.classList.add("noti");
+      divEl.appendChild(textEl);
+      notiBox.appendChild(divEl);
+      
+      // notiBox.innerHTML += "<div class='noti'>알림 내용이 표시됩니다.</div>";
+      setTimeout(function () {
+        notiBox.removeChild(divEl);
+      }, 3000);
+    });
+  </script>
+</body>
+</html>

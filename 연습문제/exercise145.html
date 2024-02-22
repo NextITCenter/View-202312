@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        인공지능 컴퓨터와 게이머(사람)가 가위바위보 게임을 할 수 있도록
+        프로그램을 작성하시오. (파일명: exercise145.html)
+        */
+        let player = prompt("가위 바위 보를 입력하세요.", "가위");
+        let rsp = ["가위", "바위", "보"];
+        let ranNum = Math.floor(Math.random() * (2 - 0 + 1)) + 0
+        let ai = rsp[ranNum];
+        let result = ""
+        if (player == ai) {
+            result = "비김"
+        } else if (player == "가위" && ai == "보"
+            || player == "바위" && ai == "가위"
+            || player == "보" && ai == "바위") {
+            result = "게이머 승!"
+        } else {
+            result = "인공지능 컴퓨터(AI) 승!"
+        }
+        document.write(`첫번째 사람: ${player}<br>`)
+        document.write(`두번째 사람: ${ai}<br><br>`)
+        document.write(`결과: ${result}`)
+
+    </script>
+</body>
+</html>

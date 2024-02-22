@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="popupBtn">팝업</button>
+    <button id="getBtn">가져오기</button>
+    <div id="result"></div>
+    <script>
+        // alert("윈도우 알림")
+        // let inputData = prompt("숫자를 입력하세요.");
+        // document.write(inputData)
+        let popup;
+        document.getElementById("popupBtn").onclick = function () {
+            popup = window.open("popup.html", "", "width=1, height=1")
+        }
+
+        document.getElementById("getBtn").onclick = function () {
+            let data = popup.document.getElementById("data").innerText;
+            document.getElementById("result").innerText = data;
+        }
+
+        // document.getElementById("popupBtn").addEventListener("click", function () {
+        //     window.open("popup.html", "", "width=400, height=300")
+        // })
+    </script>
+</body>
+</html>

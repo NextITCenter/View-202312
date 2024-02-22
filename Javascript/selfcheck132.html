@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const getMaxValue = function (arr) {
+            let max = 0; // let max = arr[0]
+            for (const item of arr) {
+                if (item > max) {
+                    max = item;
+                }
+            }
+            return max;
+        }
+        let myArr = [10, 20, 40, 70, 100, 50, 30, 60, 150, 400]
+        let maxValue = getMaxValue(myArr)
+        document.write(`[${myArr}]에서 가장 큰 수는 ${maxValue}`)
+    </script>
+</body>
+</html>

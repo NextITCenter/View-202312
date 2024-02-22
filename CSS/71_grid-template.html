@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: 33vw 33vw 33vw;
+            grid-template-rows: 33vh 33vh 33vh;
+            grid-template-areas: 
+            "header header header"
+            "side content content"
+            "footer footer footer";
+        }
+        header {
+            grid-area: header;
+            background-color: yellow;
+        }
+        nav {
+            grid-area: side;
+            background-color: red;
+        }
+        article {
+            grid-area: content;
+            background-color: green;
+        }
+        footer {
+            grid-area: footer;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header></header>
+        <nav></nav>
+        <article></article>
+        <footer></footer>
+    </div>
+</body>
+</html>

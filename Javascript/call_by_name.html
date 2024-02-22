@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const a = function () {
+            alert("안녕하세요.");
+        }
+
+        // a();
+        const b = function (func) {
+            func();
+        }
+        b(a);
+
+        function c(par) {
+            alert(par);
+        }
+        c(10);
+        function d(obj) {
+            alert(`${obj.name}님 안녕하세요`);
+        }
+        d({name:"홍길동"})
+    </script>
+</body>
+</html>
