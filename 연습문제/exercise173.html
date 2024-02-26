@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2 {
+            text-align: center;
+        }
+        .container {
+            text-align: center;
+            display: grid;
+            row-gap: 2vh;
+            column-gap: 2vh;
+            grid-template-columns: 36vw 20vw 36vw;
+            grid-template-rows: 60vh 30vh;
+            grid-template-areas: 
+                "left center right"
+                "bottom bottom bottom";
+        }
+        select {
+            width: 80%;
+        }
+        .grid-item button {
+            width: 30%;
+            display: block;
+        }
+        .grid-item:nth-child(2) {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        #bottom {
+            grid-area: bottom;
+        }
+    </style>
+</head>
+<body>
+    <h2>Select 객체 문제</h2>
+    <div class="container">
+        <div class="grid-item">
+            <select id="left" size="15"></select>
+        </div>
+        <div class="grid-item">
+            <button id="moveRight">&gt;</button>
+            <button id="moveAllRight">&gt;&gt;</button>
+            <button id="moveLeft">&lt;</button>
+            <button id="moveAllLeft">&lt;&lt;</button>
+        </div>
+        <div class="grid-item">
+            <select id="right" size="15"></select>
+        </div>
+        <div id="bottom">
+            <input type="text" name="data" id="data">
+            <button id="addBtn">추가하기</button>
+        </div>
+    </div>
+    <script>
+        function addItem() {
+            if (data.value != "") {
+                left.innerHTML += `<option>${data.value}</option>`
+                data.value = "";
+                data.focus();
+            }   
+        }
+        data.addEventListener("keyup", function (ev) {
+            if (ev.keyCode == 13) {
+                addItem()
+            }
+        })
+        // 입력창에서 왼쪽 select box에 값 추가하기
+        addBtn.addEventListener("click", function () {
+            addItem();
+        });
+        // 왼쪽에서 오른쪽으로 데이터 이동
+        moveRight.addEventListener("click", function () {
+            let idx = left.selectedIndex
+            if (idx != -1) {
+                right.appendChild(left.options[idx]);
+            } else {
+                alert("이동할 항목을 선택하세요.")
+            }
+        })
+        // 오른쪽에서 왼쪽으로 데이터 이동
+        moveLeft.addEventListener("click", function () {
+            let idx = right.selectedIndex
+            if (idx != -1) {
+                left.appendChild(right.options[idx]);
+            } else {
+                alert("이동할 항목을 선택하세요.")
+            }
+        })
+        // 왼쪽에서 오른쪽으로 전체 이동
+        moveAllRight.addEventListener("click", function () {
+            if (left.length > 0) {
+                let size = left.length;
+                for (let i = 0; i < size; i++) {
+                    right.appendChild(left.options[0]);
+                }
+            } else {
+                alert("이동할 항목이 없습니다.")
+            }
+        })
+        // 오른쪽에서 왼쪽으로 전체 이동
+        moveAllLeft.addEventListener("click", function () {
+            if (right.length > 0) {
+                let size = right.length;
+                for (let i = 0; i < size; i++) {
+                    left.appendChild(right.options[0]);
+                }
+            } else {
+                alert("이동할 항목이 없습니다.")
+            }
+        })
+    </script>
+</body>
+</html>

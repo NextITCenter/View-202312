@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, tr, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        table {
+            width: 410px;
+        }
+        tr > td:first-child {
+            width: 70px;
+        }
+        #account {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>결제방법: </td>
+            <td>
+                <label>
+                    <input type="radio" name="method" value="card" checked>
+                    카드결제
+                </label>
+                <label>
+                    <input type="radio" name="method" value="account">
+                    무통장입금
+                </label>
+            </td>
+        </tr>
+        <tr id="card" class="dp">
+            <td colspan="2">
+                카드종류: 
+                <select>
+                    <option>신한카드</option>
+                    <option>삼성카드</option>
+                    <option>BC카드</option>
+                    <option>현대카드</option>
+                </select>
+                <label>카드번호: 
+                    <input type="text" name="cardNumber">
+                </label>
+            </td>
+        </tr>
+        <tr id="account" class="dp">
+            <td colspan="2">
+                입금은행: 
+                <select>
+                    <option>국민은행</option>
+                    <option>하나은행</option>
+                    <option>우리은행</option>
+                    <option>우체국</option>
+                </select>
+                <label>계좌번호: 
+                    <input type="text" name="accountNumber">
+                </label>
+            </td>
+        </tr>
+    </table>
+    <script>
+        const methods = document.querySelectorAll("input[type=radio]");
+        const dps = document.querySelectorAll(".dp");
+        methods.forEach(radio => {
+            radio.addEventListener("click", function () {
+                dps.forEach(dp => {
+                    dp.style.display = "none";
+                });
+                document.querySelector(`#${radio.value}`).style.display = "table-row";
+            });
+        })
+    </script>
+</body>
+</html>
