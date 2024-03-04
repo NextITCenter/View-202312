@@ -48,14 +48,14 @@
     function getLocal() {
         let todos = JSON.parse(localStorage.getItem("todos")) || [];
         todos.forEach(function (todo) {
-            todoList.innerHTML += `<div class="todo"><li class="todo-content ${todo.completed}">${todo.contents}</li><button class="complete-btn" data-id="${todo.id}">완료</button><button class="delete-btn" data-id="${todo.id}">삭제</button></div>`
+            todoList.innerHTML += `<div class="todo" data-id="${todo.id}"><li class="todo-content ${todo.completed}">${todo.contents}</li><button class="complete-btn">완료</button><button class="delete-btn">삭제</button></div>`
         })
     }
 
     // localStorage에서 선택한 항목 삭제
-    function removeLocal(btn) {
+    function removeLocal(todo) {
         let todos = JSON.parse(localStorage.getItem("todos")) || [];
-        const index = btn.dataset.id;
+        const index = todo.dataset.id;
         console.log(index);
         // filter함수
         todo = todos.find(item => item.id == index);
@@ -65,9 +65,9 @@
     }
     
     // 완료 스토리지에 저장
-    function completedLocal(btn) {
+    function completedLocal(todo) {
         let todos = JSON.parse(localStorage.getItem("todos")) || [];
-        const index = btn.dataset.id;
+        const index = todo.dataset.id;
         todo = todos.find(item => item.id == index)
         if (todo.completed == "completed") {
             todo.completed = "";
@@ -81,11 +81,11 @@
     function manageTodo(ev) {
         const whichBtn = ev.target.classList[0];
         if (whichBtn === "complete-btn") {
-            completedLocal(ev.target);
+            completedLocal(ev.target.parentElement);
             ev.target.parentElement.children[0].classList.toggle("completed");
         }
         if (whichBtn === "delete-btn") {
-            removeLocal(ev.target);
+            removeLocal(ev.target.parentElement);
             ev.target.parentElement.remove(); // 부모로부터 현재 요소 제거
         }
     }
