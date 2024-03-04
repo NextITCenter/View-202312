@@ -15,24 +15,16 @@
         </tr>
     </table>
     <script>
-        let xhr = new XMLHttpRequest();
-        xhr.open("GET", "https://reqres.in/api/users")
-        xhr.send()
-
-        xhr.onreadystatechange = function() {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://reqres.in/api/users");
+        xhr.send(); // 요청
+        xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 && xhr.status == 200) {
-                let response = JSON.parse(xhr.responseText);
-                let users = response.data;
-                for (user of users) {
-                    let html = "";
-                    html += `<tr>`;
-                    html += `<td>${user.id}</td>`;
-                    html += `<td>${user.first_name} ${user.last_name}</td>`;
-                    html += `<td>${user.email}</td>`;
-                    html += `<td><img src="${user.avatar}" alt="${user.id}"></td>`;
-                    html += `</tr>`;
-                    userTable.innerHTML += html;
-                }
+                let res = JSON.parse(xhr.responseText)
+                let users = res["data"]; // res.data
+                users.forEach(user => {
+                    userTable.innerHTML += `<tr><td>${user.id}</td><td>${user.first_name} ${user.last_name}</td><td>${user.email}</td><td><img src="${user.avatar}" alt="${user.last_name}"></td></tr>`;
+                })
             }
         }
     </script>

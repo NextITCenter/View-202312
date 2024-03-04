@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <table id="productTable">
+        <tr>
+            <th>아이디</th>
+            <th>이름</th>
+            <th>생산년도</th>
+            <th>팬톤 컬러</th>
+            <th>색상</th>
+        </tr>
+    </table>
+    <script>
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://reqres.in/api/products");
+        xhr.send();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                let res = JSON.parse(xhr.responseText);
+                let products = res.data;
+                products.forEach(p => {
+                    productTable.innerHTML += `<tr><td>${p.id}</td><td>${p.name}</td><td>${p.year}</td><td>${p.pantone_value}</td><td><input type="color" value="${p.color}"></td></tr>`;
+                })
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="145_quiz.css">
+</head>
+<body>
+    <div id="result">
+        <div class="quote"></div>
+        <div class="author"></div>
+    </div>
+    <!-- 사이트 주소: https://dummyjson.com/quotes -->
+    <script>
+        const quoteArea = document.querySelector(".quote")
+        const authorArea = document.querySelector(".author")
+        // 함수형 프로그래밍 방식
+        fetch("https://dummyjson.com/quotes")
+            .then(response => response.json())
+            .then(data => {
+                let quotes = data.quotes;
+                setInterval(() => {
+                    let ranNum = Math.floor(Math.random() * (29 - 0 + 1) + 0)
+                    quoteArea.innerHTML = quotes[ranNum].quote;
+                    authorArea.innerHTML = "- " + quotes[ranNum].author;
+                }, 5000);
+            })
+
+        // 전통적 방식
+        // const response = await fetch("https://dummyjson.com/quotes");
+        // let data = response.json();
+
+    </script>
+</body>
+</html>

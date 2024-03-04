@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 할 일</title>
+    <link href="todo.css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <h1>오늘의 할 일</h1>
+</header>
+<form>
+    <label for="todoInput">할 일</label>
+    <input type="text" id="todoInput" placeholder="할 일을 입력하세요.">
+    <button id="addBtn">추가</button>
+</form>
+<div id="container">
+    <ul id="todoList">
+    </ul>
+</div>
+<script>
+    const todoInput = document.querySelector("#todoInput");
+    const addBtn = document.querySelector("#addBtn");
+    const todoList = document.querySelector("#todoList");
+    // 처음 화면 로딩시 데이터 보여주기
+    document.addEventListener("DOMContentLoaded", getLocal);
+    addBtn.addEventListener("click", addTodo);
+    todoList.addEventListener("click", manageTodo);
+
+    todoInput.focus();
+
+    // 할 일 데이터 추가
+    function addTodo(ev) {
+        // 스토리지에 데이터 저장
+        saveToLocal(todoInput.value);
+    }
+    // localStorage에 할 일 목록 저장
+    function saveToLocal(todo) {
+        let todos = JSON.parse(localStorage.getItem("todos")) || [];
+        let todoSize = JSON.parse(localStorage.getItem("todoIndex")) || 1;
+        todos.push({id: todoSize++, contents: todo, completed: ""});
+        localStorage.setItem("todos", JSON.stringify(todos));
+        localStorage.setItem("todoIndex", todoSize);
+    }
+
+    // 화면에 값을 표시하기
+    function getLocal() {
+        let todos = JSON.parse(localStorage.getItem("todos")) || [];
+        todos.forEach(function (todo) {
+            todoList.innerHTML += `<div class="todo"><li class="todo-content ${todo.completed}">${todo.contents}</li><button class="complete-btn" data-id="${todo.id}">완료</button><button class="delete-btn" data-id="${todo.id}">삭제</button></div>`
+        })
+    }
+
+    // localStorage에서 선택한 항목 삭제
+    function removeLocal(btn) {
+        let todos = JSON.parse(localStorage.getItem("todos")) || [];
+        const index = btn.dataset.id;
+        console.log(index);
+        // filter함수
+        todo = todos.filter(item => item.id == index)[0];
+        // 배열에서 원하는 항목 삭제할 때 splice를 사용한다.
+        todos.splice(todos.indexOf(todo), 1);
+        localStorage.setItem("todos", JSON.stringify(todos))
+    }
+    
+    // 완료 스토리지에 저장
+    function completedLocal(btn) {
+        let todos = JSON.parse(localStorage.getItem("todos")) || [];
+        const index = btn.dataset.id;
+        todo = todos.find(item => item.id == index)
+        if (todo.completed == "completed") {
+            todo.completed = "";
+        } else {
+            todo.completed = "completed";
+        }
+        localStorage.setItem("todos", JSON.stringify(todos))       
+    }
+
+    // 할 일 관리
+    function manageTodo(ev) {
+        const whichBtn = ev.target.classList[0];
+        if (whichBtn === "complete-btn") {
+            completedLocal(ev.target);
+            ev.target.parentElement.children[0].classList.toggle("completed");
+        }
+        if (whichBtn === "delete-btn") {
+            removeLocal(ev.target);
+            ev.target.parentElement.remove(); // 부모로부터 현재 요소 제거
+        }
+    }
+</script>
+</body>
+</html>
