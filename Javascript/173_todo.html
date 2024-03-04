@@ -58,7 +58,7 @@
         const index = btn.dataset.id;
         console.log(index);
         // filter함수
-        todo = todos.filter(item => item.id == index)[0];
+        todo = todos.find(item => item.id == index);
         // 배열에서 원하는 항목 삭제할 때 splice를 사용한다.
         todos.splice(todos.indexOf(todo), 1);
         localStorage.setItem("todos", JSON.stringify(todos))
