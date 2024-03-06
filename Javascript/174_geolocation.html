@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지오로케이션</title>
+</head>
+<body>
+    <h2>현재 위치</h2>
+    <button id="locationBtn">위치 정보 가져오기</button>
+    <div id="result"></div>
+    <script>
+        // GeoLocation: 웹 브라우저나 모바일에서 현재위치 정보를 파악
+        // window.navigator 객체의 자식 객체로 geolocation 이라는 객체 존재
+        const locationBtn = document.querySelector("#locationBtn");
+        const result = document.querySelector("#result");
+        locationBtn.addEventListener("click", function (ev) {
+            ev.preventDefault();
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, errorPosition)
+            } else {
+                alert("지오로케이션을 지원하지 않습니다.");
+            }
+        })
+
+        function showPosition(position) {
+            result.innerHTML = `위도: ${position.coords.latitude}, 경도: ${position.coords.longitude}`;
+        }
+        function errorPosition(error) {
+            alert(error.message);
+        }
+
+    </script>
+</body>
+</html>
