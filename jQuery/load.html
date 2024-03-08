@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #studentList {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <table id="studentList">
+        <tr>
+            <th>이름</th>
+            <th>전공</th>
+            <th>학년</th>
+        </tr>
+    </table>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function () {
+            document.querySelector("#studentList").innerHTML = "Hello";
+        })
+        $(function () {
+            alert("test")
+        })
+        // document.addEventListener("DOMContentLoaded", function () {
+        //     document.querySelector("#studentList").innerHTML = "Hello";
+        // });
+        // $("#studentList").html("Hello");
+        // jQuery를 많이 사용했던 이유 중 하나는 Ajax이다.
+        // $.get("../Javascript/student.json", function (students) {
+        //     $.each(students, (_, s) => {
+        //         $("#studentList").html(function (_, html) {
+        //             return html + `<tr><td>${s.name}</td><td>${s.major}</td><td>${s.grade}</td></tr>`;
+        //         });
+        //     })
+        // })
+    </script>
+</body>
+</html>

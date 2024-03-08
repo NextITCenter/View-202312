@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>jQuery</h1>
+    <div>
+        <div id="header">헤더</div>
+        <div id="nav">내비</div>
+        <div id="main">
+            <h1>메인화면</h1>
+            <p>내용1</p>
+            <p>내용2</p>
+            <p>내용3</p>
+            <p>내용4</p>
+        </div>
+        <div id="footer">푸터</div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <script>
+        // $("#main").find("h1").css("background-color", "yellow");
+        // javascript로
+        // 아이디가 main요소의 자식 중 모든 h1태그를 선택한 뒤
+        // 스타일의 background-color 속성의 값을 노란색으로 바꾼다.
+        // document.querySelector("#main h1").style.backgroundColor = "yellow";
+
+        // 아이디가 nav인 요소의 부모를 선택한 뒤
+        // 스타일의 background-color 속성의 값을 green으로 변경한다.
+        // document.querySelector("#nav").parentElement.style.backgroundColor = "green";
+        // $("#nav").parent().css("background-color", "green");
+
+        // 아이디가 main인 요소의 자식들 중에서 모든 p태그를 선택한 뒤
+        // 홀수 번째 요소만 글자 색을 빨강색으로 변경하시오.
+        // const pEls = document.querySelectorAll("#main p");
+        // pEls.forEach((pTag, idx) => {
+        //     if (idx % 2 == 0) {
+        //         pTag.style.color = "red";
+        //     }
+        // });
+        // $("#main p").each((index, elem) => {
+        //     if (index % 2 == 0) {
+        //         elem.style.color = "red";
+        //         // $(elem).css("color", "red");
+        //         /*
+        //         jQuery 객체를 Javascript 객체로 변경하는 방법
+        //         $(elem).get(0); $(elem)[0];
+        //         Javascript 객체를 jQuery 객체로 변경하는 방법
+        //         elem ==> $(elem);
+        //         */
+        //     }
+        // })
+        // document.querySelector("#header").style.color = "blue";
+        $("#main p:odd").each((index, elem) => {
+            elem.style.color = "red";
+        })
+    </script>
+</body>
+</html>
